@@ -34,6 +34,7 @@ public class AttackState : State
 
     private void ResetTimer()
     {
+        RecalculateCooldown();
         _timer = _attackCooldown;
     }
 
@@ -41,6 +42,6 @@ public class AttackState : State
     {
         float currentAttackSpeed = _solider.Model.AttackSpeed;
 
-        _attackCooldown = BaseAttackSpeedRatio / currentAttackSpeed;
+        _attackCooldown = currentAttackSpeed / BaseAttackSpeedRatio;
     }
 }
